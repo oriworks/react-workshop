@@ -1,3 +1,5 @@
+# React workshop
+
 ## Create project
 
 [Create react app docs](https://create-react-app.dev/docs/getting-started)
