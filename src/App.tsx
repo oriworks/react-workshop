@@ -1,11 +1,16 @@
 import React from 'react';
 
-function App() {
+import Page from './shared/components/page'
+
+const name = "Marcos"
+const App = () => {
   return (
     <div>
-      <h1>React workshop</h1>
+      <Page name={name}>
+        <span>!!!</span>
+      </Page>
     </div>
-  );
+  )
 }
 
 export default App;
