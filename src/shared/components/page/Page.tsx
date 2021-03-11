@@ -36,12 +36,21 @@ const addUser = (name: string): Promise<void> => {
 
 const Page: React.FC<Props> = ({ children, name }) => {
     const [value, setValue] = useState<string>('');
+    const [like, setLike] = useState<boolean>(false);
     const [users, setUsers] = useState<User[]>([]);
 
 
     const handleChangeValue = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value)
+        console.log(event.target.checked);
     }, [])
+
+    const handleChangeValueOfLike = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+        const usersChanged = users.map(user => user.id === parseInt(event.target.value) ? { ...user, like: event.target.checked } : user)
+        setUsers(usersChanged);
+        console.log(usersChanged);
+    }, [])
+
 
     const handleSubmit = useCallback((event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -65,7 +74,7 @@ const Page: React.FC<Props> = ({ children, name }) => {
             <button type="submit">Submit</button>
         </form>
         <ul>
-            {users.map((u) => (<li key={u.id}>{u.name}<input type="checkbox" value={u.id} checked={u.like} /></li>))}
+            {users.map((u) => (<li key={u.id}>{u.name}<input type="checkbox" value={u.id} checked={u.like} onChange={handleChangeValueOfLike} /></li>))}
         </ul>
     </div>
     );
