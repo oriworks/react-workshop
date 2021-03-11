@@ -36,13 +36,11 @@ const addUser = (name: string): Promise<void> => {
 
 const Page: React.FC<Props> = ({ children, name }) => {
     const [value, setValue] = useState<string>('');
-    const [like, setLike] = useState<boolean>(false);
     const [users, setUsers] = useState<User[]>([]);
 
 
     const handleChangeValue = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value)
-        console.log(event.target.checked);
     }, [])
 
     const handleChangeValueOfLike = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
