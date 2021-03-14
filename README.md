@@ -15,3 +15,4 @@ npx create-react-app my-app --template typescript // for typescript
 npm install react-redux redux redux-thunk
 npm install --save-dev redux-devtools-extension redux-devtools @types/react-redux @types/redux @types/redux-thunk
 ```
+
